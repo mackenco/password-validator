@@ -1,0 +1,10 @@
+{
+  "valid": "x8AfpjmmHJXk\nfjjTCKrrnigC\neQZzqDL3NDyP\nzQD2ebDmQRZY\nbfMNefhrFhic\nFGYPa84WjrKr\nhmmJmJ5eTLd5\nj5MYhyjFwEzC\n9peEr6cf8LBc\ndRnBw6HPrcmE",
+  "tooShort": "abcd",
+  "tooLong": "asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda",
+  "invalidChars": "¡¤¡heresnonascii¡¤",
+  "common": "password1",
+  "multipleInOne": "abc¤",
+  "list": "aaa\npassword1\nanotherpassword\nabc¤\n¡¤¡heresnonascii¡¤",
+  "commonFile": "123456\npassword1\naaa\npassword2"
+}
