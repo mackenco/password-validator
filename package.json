@@ -1,0 +1,33 @@
+{
+  "name": "cmackenzie-password-validator",
+  "version": "1.0.0",
+  "description": "Validates a password or list of passwords based on the NIST guidelines",
+  "bin": {
+    "password_validator": "./index.js",
+    "password_validator_example": "./example/examples.sh"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint ."
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "author": "Colin MacKenzie <colinwmackenzie@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "commander": "^2.15.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "mocha": "^5.0.5",
+    "pre-commit": "^1.2.2",
+    "sinon": "^4.5.0"
+  }
+}
