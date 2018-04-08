@@ -27,3 +27,4 @@
  * How frequently does [Common Password List](https://github.com/danielmiessler/SecLists/raw/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt) change? Add a flag to pull down the latest version of this to use for the common passwords.
  * Add support for input files (or raw passwords) to be passed in directly as options, e.g. `password_validator -p 'password1,password2'` or `password_validator -i my_passwords.txt`
  * Spaces are valid characters, meaning `password 1` is valid (despite `password1` appearing on the common list). Should this check for common passwords with whitespace removed? 
+ * More validation - probe edge cases like malformed pipe input and unresolvable file paths 
