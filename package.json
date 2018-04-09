@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Validates a password or list of passwords based on the NIST guidelines",
   "bin": {
-    "password_validator": "./index.js",
+    "password_validator": "./lib/index.js",
     "password_validator_example": "./example/examples.sh"
   },
   "main": "index.js",

@@ -1,54 +1,54 @@
 const { expect } = require('chai');
 const fs = require('fs');
 const sinon = require('sinon');
-const { validatePasswords, buildCommon } = require('../lib/helpers');
+const { buildErrors, buildCommon } = require('../lib/helpers');
 const passwords = require('./data.json');
 
 describe('Helper functions', () => {
-  describe('#validatePasswords()', () => {
+  describe('#buildErrors()', () => {
     it('should return no errors for valid passwords', () => {
-      const errors = validatePasswords(passwords.valid);
+      const errors = buildErrors(passwords.valid);
 
       expect(errors.length).to.equal(0);
     });
 
     it('should return errors for a too short password', () => {
-      const errors = validatePasswords(passwords.tooShort);
+      const errors = buildErrors(passwords.tooShort);
 
       expect(errors.length).to.equal(1);
       expect(errors[0]).to.equal(`${passwords.tooShort} -> Error: Too Short`);
     });
 
     it('should return errors for a too long password', () => {
-      const errors = validatePasswords(passwords.tooLong);
+      const errors = buildErrors(passwords.tooLong);
 
       expect(errors.length).to.equal(1);
       expect(errors[0]).to.equal(`${passwords.tooLong} -> Error: Too Long`);
     });
 
     it('should return errors for a password with invalid characters', () => {
-      const errors = validatePasswords(passwords.invalidChars);
+      const errors = buildErrors(passwords.invalidChars);
 
       expect(errors.length).to.equal(1);
       expect(errors[0]).to.equal('***heresnonascii** -> Error: Invalid Characters');
     });
 
     it('should should return errors for a common password', () => {
-      const errors = validatePasswords(passwords.common);
+      const errors = buildErrors(passwords.common);
 
       expect(errors.length).to.equal(1);
       expect(errors[0]).to.equal(`${passwords.common} -> Error: Too Common`);
     });
 
     it('should return errors for passwords failing in > 1 way', () => {
-      const errors = validatePasswords(passwords.multipleInOne);
+      const errors = buildErrors(passwords.multipleInOne);
 
       expect(errors.length).to.equal(1);
       expect(errors[0]).to.equal('abc* -> Error: Too Short, Invalid Characters');
     });
 
     it('should return errors for multiple different passwords', () => {
-      const errors = validatePasswords(passwords.list);
+      const errors = buildErrors(passwords.list);
 
       expect(errors.length).to.equal(4);
       expect(errors[0]).to.equal('aaa -> Error: Too Short');
@@ -58,7 +58,10 @@ describe('Helper functions', () => {
 
   describe('#handleCommonFile()', () => {
     it('should return false when no path is provided', () => {
-      expect(buildCommon()).to.be.undefined;
+      const common = buildCommon();
+
+      expect(common).to.be.an('object');
+      expect(common.password1).to.be.true;
     });
 
     it('should build a password manifest when a file is provided', () => {
