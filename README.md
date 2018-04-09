@@ -1,7 +1,7 @@
 # NIST Password Validator
 
 ## Setup
- * Clone this repository: `git clone https://github.com/mackenco/password-validator.git && cd $_`
+ * Clone this repository: `git clone https://github.com/mackenco/password-validator.git && cd password-validator`
  * `yarn install` to install dependencies
  * `yarn link` to link the executables
  
