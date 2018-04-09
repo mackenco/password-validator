@@ -1,11 +1,38 @@
 const { expect } = require('chai');
 const fs = require('fs');
 const sinon = require('sinon');
-const { buildErrors, buildCommon } = require('../lib/helpers');
+const { buildErrors, buildCommon, readInput } = require('../lib/helpers');
 const passwords = require('./data.json');
 
+const sandbox = sinon.sandbox.create();
+
 describe('Helper functions', () => {
+  afterEach(() => {
+    sandbox.restore();
+  });
+
+  describe('#readInput()', () => {
+    it('should return an empty string by default', () => {
+      expect(readInput()).to.equal('');
+    });
+
+    it('should throw an error when a file is not found', () => {
+      sandbox.stub(fs, 'readFileSync').throws();
+      try {
+        readInput('bad-path.txt');
+      } catch (e) {
+        expect(e.message).to.equal('Unable to find input file at bad-path.txt');
+      }
+    });
+  });
   describe('#buildErrors()', () => {
+    it('should return an error when no passwords are supplied', () => {
+      const errors = buildErrors();
+
+      expect(errors.length).to.equal(1);
+      expect(errors[0]).to.equal('Error: No Passwords Supplied');
+    });
+
     it('should return no errors for valid passwords', () => {
       const errors = buildErrors(passwords.valid);
 
@@ -57,7 +84,7 @@ describe('Helper functions', () => {
   });
 
   describe('#handleCommonFile()', () => {
-    it('should return false when no path is provided', () => {
+    it('should return the default passwords when no path is provided', () => {
       const common = buildCommon();
 
       expect(common).to.be.an('object');
@@ -65,7 +92,7 @@ describe('Helper functions', () => {
     });
 
     it('should build a password manifest when a file is provided', () => {
-      sinon.stub(fs, 'readFileSync').returns(passwords.commonFile);
+      sandbox.stub(fs, 'readFileSync').returns(passwords.commonFile);
 
       const common = buildCommon('some/path');
       expect(common).to.deep.equal({
