@@ -6,7 +6,20 @@
  * `yarn link` to link the executables
  
 ## Usage
- * Run `cat path_to_passwords.txt | password_validator [path_to_common_passwords.txt]`. The output will print to the console.
+```
+  password_validator [options] [common-path]
+  
+  Validates a list of passwords per NIST guidelines
+  
+  Options:
+
+    -V, --version                output the version number
+    -i, --input [input]          Path to text file containing passwords
+    -p, --passwords [passwords]  Comma-separated list of passwords to validate
+    -h, --help                   output usage information
+```
+    
+ * Can also accepted piped input: `cat my_password_file | password_validator`
  * Input and common password files must be either newline or comma-delimited. 
  * Passwords are validated based on four criteria:
  
@@ -20,7 +33,6 @@
     ├── example    # Usage examples. Run `password_validator_example` to execute. Update the .txt files in this directory as needed.
     ├── lib        # Source files
     ├── test       # Automated tests. Run `yarn test` to run the test suite.
-    ├── index.js   # Actual executeable file for this package. Not much going on in there. 
     └── README.md
 
 ## Next Steps
