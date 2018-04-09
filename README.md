@@ -20,6 +20,7 @@
 ```
     
  * Can also accepted piped input: `cat my_password_file | password_validator`
+ * Check out `/example/examples.sh` for different uses, and run `password_validator_example` to see them in action. 
  * Input and common password files must be either newline or comma-delimited. 
  * Passwords are validated based on four criteria:
  
@@ -30,7 +31,7 @@
 
 ## Structure
     .
-    ├── example    # Usage examples. Run `password_validator_example` to execute. Update the .txt files in this directory as needed.
+    ├── example    # Usage examples.
     ├── lib        # Source files
     ├── test       # Automated tests. Run `yarn test` to run the test suite.
     └── README.md
