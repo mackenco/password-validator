@@ -7,6 +7,10 @@ const passwords = require('./data.json');
 const sandbox = sinon.sandbox.create();
 
 describe('Helper functions', () => {
+  beforeEach(() => {
+    sandbox.stub(console, 'log');
+  });
+
   afterEach(() => {
     sandbox.restore();
   });
