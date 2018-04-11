@@ -29,6 +29,7 @@ describe('Helper functions', () => {
       }
     });
   });
+  
   describe('#buildErrors()', () => {
     it('should return an error when no passwords are supplied', () => {
       const errors = buildErrors();
