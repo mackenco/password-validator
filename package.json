@@ -4,7 +4,11 @@
   "description": "Validates a password or list of passwords based on the NIST guidelines",
   "bin": {
     "password_validator": "./lib/index.js",
-    "password_validator_example": "./example/examples.sh"
+    "password_validator_examples": "./example/examples.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mackenco/password-validator.git"
   },
   "main": "index.js",
   "scripts": {
