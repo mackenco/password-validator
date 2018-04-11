@@ -33,7 +33,7 @@
     .
     ├── example    # Usage examples
     ├── lib        # Source files
-    ├── test       # Automated tests. Run `yarn test` to run the test suite and see coverage.
+    ├── test       # Automated tests. Run `yarn/npm test` to run the test suite and see coverage.
     └── README.md
 
 ## Next Steps
