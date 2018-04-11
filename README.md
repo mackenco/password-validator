@@ -2,8 +2,8 @@
 
 ## Setup
  * Clone this repository: `git clone https://github.com/mackenco/password-validator.git && cd password-validator`
- * `yarn install` to install dependencies
- * `yarn link` to link the executables
+ * `yarn install` or `npm install` to install dependencies
+ * `yarn link` or `npm link` to link the executables
  
 ## Usage
 ```
